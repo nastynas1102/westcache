@@ -43,7 +43,7 @@ public class WestCacheRegistry {
         FLUSHER_REGISTRY.register(DEFAULT, new ByPassCacheFlusher());
         FLUSHER_REGISTRY.register("simple", new SimpleCacheFlusher());
         if (Envs.HAS_DIAMOND) FLUSHER_REGISTRY.register("diamond", new DiamondCacheFlusher());
-        if (Envs.HAS_EQL) FLUSHER_REGISTRY.register("table", new TableCacheFlusher());
+        if (Envs.HAS_MYBATIS) FLUSHER_REGISTRY.register("table", new TableCacheFlusher());
         if (Envs.HAS_QUARTZ) FLUSHER_REGISTRY.register("quartz", new QuartzCacheFlusher());
     }
 

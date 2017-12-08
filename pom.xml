@@ -4,7 +4,7 @@
 
     <groupId>com.github.bingoohuang</groupId>
     <artifactId>westcache</artifactId>
-    <version>0.1.2</version>
+    <version>0.1.4</version>
     <packaging>jar</packaging>
 
     <name>westcache</name>
@@ -48,7 +48,7 @@
             <email>nastynas1102@163.com</email>
             <roles>
                 <role>git user</role>
-                <role>developer who make westcache support oriented interface cache function</role>
+                <role>developer who make westcache support oriented interface cache function and use mybatis instance of eql as persistence framework </role>
             </roles>
         </developer>
     </developers>
@@ -193,6 +193,27 @@
             <version>1.17.3</version>
             <scope>test</scope>
         </dependency>
+
+        <!--数据库DBCP连接-->
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
+
+        <!--mysql驱动-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.38</version>
+        </dependency>
+        <!--mybatis-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>

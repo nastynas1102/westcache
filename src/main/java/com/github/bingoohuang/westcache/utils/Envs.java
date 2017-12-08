@@ -20,6 +20,7 @@ public class Envs {
     public static final boolean HAS_EXPIRING = classExists("net.jodah.expiringmap.ExpiringMap");
     public static final boolean HAS_JEDIS = classExists("redis.clients.jedis.JedisCommands");
     public static final boolean HAS_EQL = classExists("org.n3r.eql.eqler.EqlerFactory");
+    public static final boolean HAS_MYBATIS = classExists("org.apache.ibatis.session.SqlSessionFactory");
     public static final boolean HAS_QUARTZ = classExists("org.quartz.JobDetail");
 
     public static boolean classExists(String className) {

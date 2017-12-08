@@ -17,7 +17,7 @@ public class Helper {
     public TableCacheFlusher setupTableFlusherForTest() {
         val flusher = (TableCacheFlusher) FLUSHER_REGISTRY.get("table");
         flusher.cancelRotateChecker();
-        flusher.getDao().setup();
+//        flusher.getDao().setup();
 
         REGISTRY_TEMPLATE.deregister("default");
         REGISTRY_TEMPLATE.register("default", new DefaultWestCacheConfig() {

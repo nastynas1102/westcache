@@ -4,12 +4,23 @@ import com.alibaba.fastjson.TypeReference;
 import com.github.bingoohuang.westcache.flusher.DirectValueType;
 import com.github.bingoohuang.westcache.flusher.TableBasedCacheFlusher;
 import com.github.bingoohuang.westcache.flusher.WestCacheFlusherBean;
+import com.github.bingoohuang.westcache.mybatis.MybatisFactory;
+import com.github.bingoohuang.westcache.mybatis.WestCacheMapper;
 import com.github.bingoohuang.westcache.utils.*;
+import lombok.AllArgsConstructor;
+import lombok.Cleanup;
 import lombok.Getter;
 import lombok.val;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.n3r.eql.eqler.EqlerFactory;
+import redis.clients.jedis.JedisCommands;
+import redis.clients.jedis.JedisPool;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -19,8 +30,9 @@ import java.util.concurrent.Callable;
  */
 public class TableCacheFlusher extends TableBasedCacheFlusher {
     @Getter
-    TableCacheFlusherDao dao
-            = EqlerFactory.getEqler(TableCacheFlusherDao.class);
+    SqlSessionFactory sqlSessionFactory = Guavas.cacheGet(MybatisFactory.sessionFactoryCache, this.getClass());
+    @Getter
+    WestCacheMapper dao = MybatisFactory.proxyMybatisDao(sqlSessionFactory);
 
     @Override
     protected List<WestCacheFlusherBean> queryAllBeans() {

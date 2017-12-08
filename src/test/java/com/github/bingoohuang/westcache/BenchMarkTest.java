@@ -58,7 +58,7 @@ public class BenchMarkTest {
                         return 1000;
                     }
                 });
-        flusher.getDao().setup();
+//        flusher.getDao().setup();
 
         MockDiamondServer.setConfigInfo(GROUP, DATAID,
                 "com.github.bingoohuang.westcache");
